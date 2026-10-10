@@ -11,7 +11,7 @@ export const profile = {
   phone: "+91 7311177404",
   phoneHref: "tel:+917311177404",
   github: "https://github.com/Md-Belal-Akhlaque",
-  linkedin:"https://www.linkedin.com/in/your-handle",
+  linkedin:"https://www.linkedin.com/in/md-belal-akhlaque-330779406/",
   mainPhoto: "/images/profile/heroPhoto.png",
 
   bio: "Full Stack Developer specializing in the MERN stack, with a strong foundation in Data Structures and Algorithms. I build secure, production-ready applications with REST APIs, JWT authentication, role-based access control, and payment gateway integrations.",
