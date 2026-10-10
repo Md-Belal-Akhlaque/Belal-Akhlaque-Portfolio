@@ -1,0 +1,152 @@
+.mainContainer {
+  position: fixed;
+  top: 24px;
+  left: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  padding-inline: var(--page-padding);
+
+  pointer-events: none;
+}
+
+.mainContainer > * {
+  pointer-events: auto;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 15px 14px;
+
+  background: rgba(245, 242, 232, 0.92);
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+
+  font-family: var(--font-inter), sans-serif;
+  font-size: var(--text-m);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--color-text);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  transition:
+    background-color 180ms ease,
+    opacity 180ms ease;
+}
+
+.logo:hover {
+  opacity: 0.75;
+}
+
+.navbar {
+  position: fixed;
+  top: 24px;
+  right: 32px;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  gap: 2px;
+
+  width: fit-content;
+  max-width: calc(100% - 48px);
+
+  padding: 4px;
+
+  background: rgba(245, 242, 232, 0.92);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.link {
+    
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 9px 13px;
+
+  border-radius: var(--radius-pill);
+
+  font-family: var(--font-inter), sans-serif;
+  font-size: var(--text-s);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--color-muted);
+
+  white-space: nowrap;
+
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.link:hover {
+  color: var(--color-text);
+}
+
+.active {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.active:hover {
+  color: var(--color-bg);
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.logo:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+@media (max-width: 767px) {
+  .mainContainer {
+    top: 14px;
+    display: block;
+  }
+
+  .logo {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    font-size: 11px;
+  }
+
+  .navbar {
+    top: 16px;
+    right: 16px;
+    left: 64px;
+    width: auto;
+    max-width: none;
+
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .navbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .link {
+    min-height: 40px;
+    padding: 8px 12px;
+    font-size: 10px;
+  }
+}

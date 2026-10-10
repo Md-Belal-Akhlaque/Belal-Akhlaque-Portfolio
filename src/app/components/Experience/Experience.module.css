@@ -1,0 +1,346 @@
+/* No custom CSS variables: all values are hardcoded.
+   Only next/font's --font-inter and --font-dm-serif are used. */
+
+.section {
+  padding: 140px 6vw 140px;
+  overflow-x: clip;
+  scroll-margin-top: 100px;
+  background: linear-gradient(180deg, #f8f5e6 0%, #f3e9b8 50%, #f8f3e1 100%);
+  font-family: var(--font-inter), "Inter", system-ui, sans-serif;
+  color: #1f2030;
+}
+
+/* ---------- Heading ---------- */
+.label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8a8794;
+}
+.labelLine {
+  width: 56px;
+  height: 1px;
+  background: #cfc8b8;
+}
+.heading {
+  margin: 0;
+  font-size: clamp(44px, 6vw, 88px);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+}
+.sans {
+  font-weight: 700;
+  color: #29293b;
+}
+.serif {
+  font-family: var(--font-dm-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  color: #7c7a82;
+}
+.desc {
+  max-width: 340px;
+  margin: 22px 0 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #7d7a86;
+}
+
+/* ---------- Timeline ---------- */
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+  margin: 90px 0 0;
+  padding: 0;
+  list-style: none;
+}
+/* the vertical line */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(180deg, transparent 0%, #b9b19b 12%, #b9b19b 88%, transparent 100%);
+}
+.item {
+  display: grid;
+  grid-template-columns: 1fr 56px 1fr;
+  align-items: center;
+}
+.dot {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #23254d;
+  box-shadow: 0 0 0 6px #f5eecb;
+  position: relative;
+  z-index: 1;
+}
+
+/* big year */
+.year {
+  grid-row: 1;
+  font-size: clamp(64px, 10vw, 150px);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.07em;
+  color: #29293b;
+}
+
+/* year on the left, card on the right */
+.left .year {
+  grid-column: 1;
+  padding-right: 24px;
+  text-align: right;
+}
+.left .card {
+  grid-column: 3;
+  grid-row: 1;
+  margin-left: 24px;
+}
+/* card on the left, year on the right */
+.right .card {
+  grid-column: 1;
+  grid-row: 1;
+  margin-right: 24px;
+}
+.right .year {
+  grid-column: 3;
+  padding-left: 24px;
+  text-align: left;
+}
+
+/* ---------- Card ---------- */
+.card {
+  max-width: 520px;
+  padding: 28px 30px;
+  border: 1px solid #e6e0cf;
+  border-radius: 24px;
+  background: rgba(253, 252, 248, 0.9);
+  box-shadow: 0 16px 40px rgba(70, 60, 20, 0.08);
+  transition: transform 450ms cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 450ms ease;
+}
+.right .card {
+  justify-self: end;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 56px rgba(70, 60, 20, 0.13);
+}
+.type {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #f3ecd4;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6f6c78;
+}
+.title {
+  margin: 18px 0 0;
+  font-size: clamp(22px, 2.2vw, 30px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  color: #23243a;
+}
+.org {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: #6f6c78;
+}
+.period {
+  margin: 4px 0 0;
+  font-size: 12.5px;
+  color: #9a97a3;
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+.meta:empty {
+  display: none;
+}
+.score,
+.badge {
+  padding: 7px 13px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.score {
+  background: #f3ecd4;
+  color: #4a4856;
+}
+.badge {
+  background: #23254d;
+  color: #f6f2e7;
+}
+
+/* ---------- Mobile: single column, line on the left ---------- */
+@media (max-width: 800px) {
+  .section {
+    padding: 110px 20px 90px;
+  }
+  .timeline {
+    gap: 48px;
+    margin-top: 56px;
+  }
+  .timeline::before {
+    left: 6px;
+  }
+  .item {
+    grid-template-columns: 14px 1fr;
+    column-gap: 20px;
+    align-items: start;
+  }
+  .dot {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    margin-top: 14px;
+  }
+  .left .year,
+  .right .year {
+    grid-column: 2;
+    grid-row: 1;
+    padding: 0;
+    text-align: left;
+    font-size: 64px;
+  }
+  .left .card,
+  .right .card {
+    grid-column: 2;
+    grid-row: 2;
+    margin: 12px 0 0;
+    justify-self: stretch;
+    max-width: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+}
+
+/* ---------- Scroll reveal (pure CSS, scroll-driven) ----------
+   Cards slide in from their own side while fading in, tied to scroll position.
+   Browsers without animation-timeline support just show everything normally. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .left .card {
+      animation: fromRight linear backwards;
+      animation-timeline: view();
+      animation-range: entry 0% entry 70%;
+    }
+    .right .card {
+      animation: fromLeft linear backwards;
+      animation-timeline: view();
+      animation-range: entry 0% entry 70%;
+    }
+    .left .year {
+      animation: fromLeftSoft linear backwards;
+      animation-timeline: view();
+      animation-range: entry 0% entry 70%;
+    }
+    .right .year {
+      animation: fromRightSoft linear backwards;
+      animation-timeline: view();
+      animation-range: entry 0% entry 70%;
+    }
+    .dot {
+      animation: popIn linear backwards;
+      animation-timeline: view();
+      animation-range: entry 20% entry 60%;
+    }
+
+    /* Mobile: everything is one column, so rise from below instead */
+    @media (max-width: 800px) {
+      .left .card,
+      .right .card,
+      .left .year,
+      .right .year {
+        animation-name: riseIn;
+        animation-range: entry 0% entry 60%;
+      }
+    }
+  }
+}
+
+@keyframes fromRight {
+  from {
+    opacity: 0;
+    transform: translateX(120px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-120px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fromLeftSoft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fromRightSoft {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

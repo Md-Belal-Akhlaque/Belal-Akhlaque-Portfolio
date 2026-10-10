@@ -1,0 +1,534 @@
+/* No custom CSS variables: all values are hardcoded.
+   Only next/font's --font-inter and --font-dm-serif are used. */
+
+.work {
+  position: relative;
+  padding: 140px 6vw 120px;
+  scroll-margin-top: 100px;
+  background: linear-gradient(180deg, #f8f6ee 0%, #f5eecb 45%, #f8f6ee 100%);
+  font-family: var(--font-inter), "Inter", system-ui, sans-serif;
+  color: #1f2030;
+}
+
+/* ---------- Header ---------- */
+.top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 48px;
+}
+.label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8a8794;
+}
+.labelLine {
+  width: 56px;
+  height: 1px;
+  background: #cfc8b8;
+}
+.heading {
+  margin: 0;
+  font-size: clamp(44px, 6vw, 88px);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+}
+.headingSans {
+  font-weight: 700;
+  color: #29293b;
+}
+.headingSerif {
+  font-family: var(--font-dm-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  color: #7c7a82;
+}
+.intro {
+  max-width: 280px;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: #7d7a86;
+}
+
+/* ---------- Accordion ---------- */
+.panels {
+  display: flex;
+  gap: 10px;
+  height: 540px;
+}
+.panel {
+  flex: 0 0 84px;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #ebe5d3;
+  border-radius: 28px;
+  background: rgba(252, 251, 246, 0.85);
+  box-shadow: 0 10px 28px rgba(70, 60, 20, 0.06);
+  transition: flex 1000ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 300ms ease;
+}
+.open {
+  flex: 1 1 0px; /* 0px (not 0) so the size can animate smoothly from 84px */
+  background: #fdfcf8;
+  box-shadow: 0 24px 60px rgba(70, 60, 20, 0.12);
+}
+
+/* Collapsed strip */
+.strip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 24px 0;
+  border: 0;
+  background: transparent;
+  color: #29293b;
+  font-family: inherit;
+  cursor: pointer;
+}
+.strip:focus-visible {
+  outline: 2px solid #23254d;
+  outline-offset: -4px;
+  border-radius: 28px;
+}
+.stripNum {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #9a97a3;
+}
+.stripTitle {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+.plus {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #23254d;
+  color: #f6f2e7;
+  font-size: 18px;
+  line-height: 1;
+  transition: transform 250ms ease;
+}
+.strip:hover .plus {
+  transform: rotate(90deg);
+}
+
+/* ---------- Open panel content ---------- */
+.content {
+  animation: contentIn 600ms ease 300ms both; /* text fades in after the panel starts opening */
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 28px;
+  width: 100%;
+  min-width: 840px; /* keeps text from re-wrapping while the panel animates */
+  height: 100%;
+  padding: 32px;
+}
+.text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: #9a97a3;
+}
+.meta b {
+  font-weight: 500;
+  color: #6f6c78;
+}
+.title {
+  margin: 18px 0 0;
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #23243a;
+}
+.title em {
+  font-family: var(--font-dm-serif), Georgia, serif;
+  font-weight: 400;
+  font-size: 0.7em;
+  letter-spacing: -0.02em;
+  color: #7c7a82;
+}
+.desc {
+  max-width: 440px;
+  margin: 16px 0 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #6f6c78;
+}
+.features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 20px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 12.5px;
+  color: #4a4856;
+}
+.features li::before {
+  content: "•";
+  margin-right: 8px;
+  color: #9a97a3;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.chips li {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: #f3ecd4;
+  font-size: 11px;
+  font-weight: 500;
+  color: #4a4856;
+}
+.chipDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #8fa57a;
+}
+.chipMore {
+  background: transparent !important;
+  color: #9a97a3 !important;
+}
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 22px;
+  border-radius: 999px;
+  background: #23254d;
+  color: #f6f2e7;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 200ms ease, background-color 200ms ease;
+}
+.cta:hover {
+  transform: translateY(-2px);
+  background: #181a3a;
+}
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto;
+}
+.ctaGhost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 21px;
+  border: 1px solid #d9d2bd;
+  border-radius: 999px;
+  background: transparent;
+  color: #29293b;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 200ms ease, background-color 200ms ease;
+}
+.ctaGhost:hover {
+  transform: translateY(-2px);
+  background: #f3ecd4;
+}
+.cta:focus-visible,
+.ctaGhost:focus-visible {
+  outline: 2px solid #23254d;
+  outline-offset: 3px;
+}
+
+@keyframes contentIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- Illustration stage ---------- */
+.stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  border-radius: 24px;
+  background: linear-gradient(160deg, #f7f1cb 0%, #efe6b6 100%);
+  overflow: hidden;
+}
+.caption,
+.mono {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.14em;
+  color: #9a97a3;
+}
+.caption {
+  position: absolute;
+  bottom: 14px;
+  left: 18px;
+}
+
+/* Food art */
+.order,
+.typing,
+.movie {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 80%;
+  padding: 20px;
+  border-radius: 14px;
+  background: #fffdf6;
+  box-shadow: 0 16px 36px rgba(70, 60, 20, 0.12);
+}
+.orderHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.paid {
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: #e3efd8;
+  font-size: 9px;
+  font-weight: 600;
+  color: #3f6b3a;
+}
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.steps li {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.steps li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: 6px;
+  width: 2px;
+  height: 22px;
+  background: #e4dfcd;
+}
+.stepDot {
+  flex: 0 0 14px;
+  width: 14px;
+  height: 14px;
+  margin-top: 1px;
+  border-radius: 50%;
+  background: #e4dfcd;
+}
+.stepDone .stepDot {
+  background: #23254d;
+}
+.stepNow .stepDot {
+  background: #fffdf6;
+  border: 3px solid #23254d;
+}
+.steps b {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #29293b;
+}
+.steps small {
+  font-size: 10.5px;
+  color: #8a8794;
+}
+
+/* Typing art */
+.sample {
+  margin: 0;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #b8b3a2;
+}
+.typed {
+  color: #29293b;
+}
+.caret {
+  display: inline-block;
+  width: 2px;
+  height: 15px;
+  margin-right: 1px;
+  vertical-align: middle;
+  background: #23254d;
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.stats div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px;
+  border-radius: 10px;
+  background: #f3ecd4;
+}
+.stats strong {
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #23254d;
+}
+.stats small {
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  color: #8a8794;
+}
+
+/* Movie art */
+.banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px;
+  height: 120px;
+  padding: 14px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #2c2e5c 0%, #1b1c3d 100%);
+}
+.bannerTag {
+  margin-bottom: auto;
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  color: rgba(246, 242, 231, 0.6);
+}
+.bannerTitle,
+.bannerSub {
+  display: block;
+  height: 8px;
+  border-radius: 4px;
+  background: #f6f2e7;
+}
+.bannerTitle {
+  width: 55%;
+  height: 10px;
+}
+.bannerSub {
+  width: 35%;
+  opacity: 0.45;
+}
+.posters {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
+.posters i {
+  display: block;
+  aspect-ratio: 2 / 3;
+  border-radius: 6px;
+  background: #8f7f70;
+}
+
+/* ---------- Tablet and mobile: stack the panels ---------- */
+@media (max-width: 1000px) {
+  .work {
+    padding: 110px 20px 80px;
+  }
+  .top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .panels {
+    flex-direction: column;
+    height: auto;
+  }
+  .panel {
+    flex: none;
+  }
+  .strip {
+    flex-direction: row;
+    height: 72px;
+    padding: 0 22px;
+  }
+  .stripTitle {
+    writing-mode: horizontal-tb;
+    transform: none;
+    margin-right: auto;
+    margin-left: 18px;
+    font-size: 17px;
+  }
+  .content {
+    grid-template-columns: 1fr;
+    min-width: 0;
+    padding: 22px;
+  }
+  .ctaRow {
+    margin-top: 24px;
+  }
+  .stage {
+    min-height: 320px;
+  }
+  .features {
+    grid-template-columns: 1fr;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .panel,
+  .plus,
+  .cta {
+    transition: none;
+  }
+  .content {
+    animation: none;
+  }
+}

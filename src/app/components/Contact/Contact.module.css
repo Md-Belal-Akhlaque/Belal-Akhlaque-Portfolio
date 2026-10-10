@@ -1,0 +1,384 @@
+/* No custom CSS variables: all values are hardcoded.
+   Only next/font's --font-inter is used. */
+
+.section {
+  padding: 150px 6vw 40px;
+  scroll-margin-top: 60px;
+  background: linear-gradient(180deg, #f5eecb 0%, #f8f6ee 70%);
+  font-family: var(--font-inter), "Inter", system-ui, sans-serif;
+  color: #1f2030;
+}
+.panel {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* ---------- Label ---------- */
+.label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 40px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8a8794;
+}
+.labelLine {
+  width: 56px;
+  height: 1px;
+  background: #cfc8b8;
+}
+
+/* ---------- Heading: dark first line, grey second line ---------- */
+.heading {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-size: clamp(48px, 9.5vw, 150px);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.065em;
+}
+.dark {
+  color: #29293b;
+}
+.muted {
+  color: #9a97a3;
+}
+.lead {
+  max-width: 440px;
+  margin: 36px 0 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #6f6c78;
+}
+
+/* ---------- Big email ---------- */
+.email {
+  display: inline-block;
+  margin-top: 40px;
+  max-width: 100%;
+  padding-bottom: 6px;
+  overflow-wrap: anywhere;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 2px no-repeat;
+  color: #29293b;
+  font-size: clamp(20px, 3.2vw, 46px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+  transition: background-size 500ms cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.email:hover,
+.email:focus-visible {
+  background-size: 100% 2px;
+  outline: none;
+}
+
+/* ---------- Buttons ---------- */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+.primary,
+.ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: 999px;
+  font: 600 13px/1 var(--font-inter), "Inter", system-ui, sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 200ms ease, background-color 200ms ease;
+}
+.primary {
+  border: 1px solid #23254d;
+  background: #23254d;
+  color: #f6f2e7;
+}
+.primary:hover {
+  transform: translateY(-2px);
+  background: #181a3a;
+}
+.ghost {
+  border: 1px solid #d9d2bd;
+  background: rgba(255, 255, 255, 0.5);
+  color: #29293b;
+}
+.ghost:hover {
+  transform: translateY(-2px);
+  background: #f3ecd4;
+}
+.primary:focus-visible,
+.ghost:focus-visible,
+.links a:focus-visible {
+  outline: 2px solid #23254d;
+  outline-offset: 3px;
+}
+/* screen-reader announcement only */
+.status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+/* ---------- Links ---------- */
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+  margin: 64px 0 0;
+  padding: 28px 0 0;
+  list-style: none;
+  border-top: 1px solid #ddd6c0;
+}
+.links a {
+  color: #6f6c78;
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+.links a:hover {
+  color: #23254d;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px 24px;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 28px 6vw 40px;
+  background: #f8f6ee;
+  font-family: var(--font-inter), "Inter", system-ui, sans-serif;
+  font-size: 12.5px;
+  color: #8a8794;
+}
+.footer a {
+  color: #29293b;
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 720px) {
+  .section {
+    padding: 110px 20px 24px;
+  }
+  .footer {
+    padding: 28px 20px 40px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .email,
+  .primary,
+  .ghost {
+    transition: none;
+  }
+}
+
+
+
+/* No custom CSS variables: all values are hardcoded.
+   Only next/font's --font-inter and --font-dm-serif are used. */
+
+/* .section {
+  padding: 60px 3vw 40px;
+  scroll-margin-top: 60px;
+  background: #f8f6ee;
+  font-family: var(--font-inter), "Inter", system-ui, sans-serif;
+} */
+
+/* Dark panel: the one bold moment on this page's last screen */
+/* .panel {
+  position: relative;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: clamp(40px, 7vw, 100px) clamp(24px, 6vw, 90px);
+  overflow: hidden;
+  border-radius: 40px;
+  background: linear-gradient(145deg, #2c2e5c 0%, #1b1c3d 100%);
+  color: #f6f2e7;
+  box-shadow: 0 40px 80px rgba(27, 28, 61, 0.28);
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 40px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(246, 242, 231, 0.55);
+}
+.labelLine {
+  width: 56px;
+  height: 1px;
+  background: rgba(246, 242, 231, 0.25);
+}
+
+.heading {
+  margin: 0;
+  font-size: clamp(56px, 9vw, 140px);
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+}
+.sans {
+  font-weight: 700;
+}
+.serif {
+  font-family: var(--font-dm-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  color: #cfc8b8;
+}
+.lead {
+  max-width: 440px;
+  margin: 28px 0 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(246, 242, 231, 0.7);
+} */
+
+/* Big email */
+/* .email {
+  display: inline-block;
+  margin-top: 44px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 2px no-repeat;
+  padding-bottom: 6px;
+  color: #f6f2e7;
+  font-size: clamp(22px, 3.6vw, 52px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+  transition: background-size 500ms cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.email:hover,
+.email:focus-visible {
+  background-size: 100% 2px;
+  outline: none;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 36px;
+}
+.primary,
+.ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: 999px;
+  font: 600 13px/1 var(--font-inter), "Inter", system-ui, sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 200ms ease, background-color 200ms ease;
+}
+.primary {
+  border: 1px solid #f6f2e7;
+  background: #f6f2e7;
+  color: #23254d;
+}
+.primary:hover {
+  transform: translateY(-2px);
+  background: #ffffff;
+}
+.ghost {
+  border: 1px solid rgba(246, 242, 231, 0.35);
+  background: transparent;
+  color: #f6f2e7;
+}
+.ghost:hover {
+  transform: translateY(-2px);
+  background: rgba(246, 242, 231, 0.1);
+}
+.primary:focus-visible,
+.ghost:focus-visible,
+.links a:focus-visible {
+  outline: 2px solid #f6f2e7;
+  outline-offset: 3px;
+} */
+/* screen-reader announcement only */
+/* .status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+  margin: 56px 0 0;
+  padding: 28px 0 0;
+  list-style: none;
+  border-top: 1px solid rgba(246, 242, 231, 0.18);
+}
+.links a {
+  color: rgba(246, 242, 231, 0.75);
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+.links a:hover {
+  color: #ffffff;
+} */
+
+/* ---------- Footer ----------
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px 24px;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 28px 3vw 40px;
+  background: #f8f6ee;
+  font-family: var(--font-inter), "Inter", system-ui, sans-serif;
+  font-size: 12.5px;
+  color: #8a8794;
+} */
+/* .footer a {
+  color: #29293b;
+  text-decoration: none;
+} */
+/* .footer a:hover {
+  text-decoration: underline;
+} */
+
+/* @media (max-width: 720px) {
+  .section {
+    padding: 40px 12px 24px;
+  }
+  .panel {
+    border-radius: 28px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .email,
+  .primary,
+  .ghost {
+    transition: none;
+  }
+} */
