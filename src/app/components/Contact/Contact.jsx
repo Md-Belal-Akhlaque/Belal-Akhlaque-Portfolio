@@ -28,7 +28,7 @@ export default function Contact() {
       <section id="contact" className={styles.section}>
         <div className={styles.panel}>
           <div className={styles.label}>
-            <span>07</span>
+            <span>06</span>
             <span className={styles.labelLine} />
             <span>Contact</span>
           </div>
@@ -88,7 +88,6 @@ export default function Contact() {
     </>
   );
 }
-
 
 
 

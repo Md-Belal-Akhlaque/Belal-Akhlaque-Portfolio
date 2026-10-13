@@ -1,0 +1,218 @@
+/* No custom CSS variables: all values are hardcoded.
+   Only next/font's --font-inter and --font-dm-serif are used. */
+
+.section {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
+  gap: 6vw;
+  align-items: start;
+  padding: 140px 6vw 120px;
+  scroll-margin-top: 100px;
+  background: #f8f6ee;
+  font-family: var(--font-inter), "Inter", system-ui, sans-serif;
+  color: #1f2030;
+}
+
+/* ---------- Left: heading ---------- */
+.intro {
+  position: sticky;
+  top: 120px;
+}
+.label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8a8794;
+}
+.labelLine {
+  width: 56px;
+  height: 1px;
+  background: #cfc8b8;
+}
+.heading {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-size: clamp(48px, 6.4vw, 96px);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+.sans {
+  font-weight: 700;
+  color: #29293b;
+}
+.serif {
+  font-family: var(--font-dm-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  color: #8a8794;
+}
+.desc {
+  max-width: 300px;
+  margin: 24px 0 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #7d7a86;
+}
+
+/* ---------- Right: list ---------- */
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid #ddd6c0;
+}
+.row {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 8px;
+  padding: 26px 20px;
+  border-top: 1px solid #ddd6c0;
+  border-radius: 18px;
+  cursor: default;
+  transition: background-color 350ms ease, color 350ms ease,
+    transform 450ms cubic-bezier(0.25, 0.8, 0.25, 1), border-color 350ms ease;
+}
+.row:hover,
+.row:focus-visible {
+  transform: translateX(10px);
+  border-color: transparent;
+  background: #23254d;
+  color: #f6f2e7;
+  outline: none;
+}
+.row:focus-visible {
+  box-shadow: 0 0 0 2px #23254d, 0 0 0 5px #f8f6ee;
+}
+
+.num {
+  padding-top: 5px;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: #9a97a3;
+  transition: color 350ms ease;
+}
+.body {
+  min-width: 0;
+}
+.kind {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: #f3ecd4;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6f6c78;
+  transition: background-color 350ms ease, color 350ms ease;
+}
+.row:hover .kind,
+.row:focus-visible .kind {
+  background: rgba(246, 242, 231, 0.14);
+  color: rgba(246, 242, 231, 0.8);
+}
+.title {
+  margin: 0;
+  font-size: clamp(18px, 1.9vw, 26px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+.issuer {
+  display: block;
+  margin-top: 6px;
+  font-size: 12.5px;
+  color: #8a8794;
+  transition: color 350ms ease;
+}
+.row:hover .num,
+.row:hover .issuer,
+.row:focus-visible .num,
+.row:focus-visible .issuer {
+  color: rgba(246, 242, 231, 0.65);
+}
+
+/* Note slides open on hover */
+.noteWrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 450ms cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.note {
+  min-height: 0;
+  max-width: 460px;
+  margin: 0;
+  overflow: hidden;
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(246, 242, 231, 0.8);
+}
+.row:hover .noteWrap,
+.row:focus-visible .noteWrap {
+  grid-template-rows: 1fr;
+}
+.row:hover .note,
+.row:focus-visible .note {
+  padding-top: 12px;
+}
+
+.view {
+  align-self: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid #cfc8b8;
+  color: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.row:hover .view,
+.row:focus-visible .view {
+  border-color: rgba(246, 242, 231, 0.4);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .section {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 110px 20px 80px;
+  }
+  .intro {
+    position: static;
+  }
+  .row {
+    grid-template-columns: 40px minmax(0, 1fr);
+  }
+  .view {
+    grid-column: 2;
+    justify-self: start;
+    margin-top: 12px;
+  }
+}
+/* Touch screens have no hover, so keep the note visible */
+@media (hover: none) {
+  .noteWrap {
+    grid-template-rows: 1fr;
+  }
+  .note {
+    padding-top: 10px;
+    color: #7d7a86;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .row,
+  .noteWrap {
+    transition: none;
+  }
+}
