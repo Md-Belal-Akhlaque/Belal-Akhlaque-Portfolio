@@ -6,6 +6,7 @@ import Work from "./components/Work/Work.jsx";
 import Certifications from "./components/Certifications/Certifications.jsx";
 import Experience from "./components/Experience/Experience.jsx";
 import Contact from "./components/Contact/Contact.jsx";
+import Achievements from "./components/Achievements/Achievements.jsx";
 
 
 export default function Home() {
@@ -15,8 +16,9 @@ export default function Home() {
      <About />  
      <TechStack/> 
      <Work />
-     <Certifications />
      <Experience />
+     <Achievements />
+     {/* <Certifications /> */}
      <Contact/>
     </>
   );
